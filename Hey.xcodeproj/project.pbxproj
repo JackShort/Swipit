@@ -35,6 +35,9 @@
 		0462E44E1B07F9B300E91A1F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0462E44D1B07F9B300E91A1F /* SearchViewController.swift */; };
 		0463D2551AFA53AA003D588F /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463D2541AFA53AA003D588F /* FeedCell.swift */; };
 		0463D2591AFA8D07003D588F /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463D2581AFA8D07003D588F /* ImageViewController.swift */; };
+		047F78911B086C27006AB1BE /* SendPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F78901B086C27006AB1BE /* SendPhotoViewController.swift */; };
+		047F78931B0879E5006AB1BE /* CustomImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F78921B0879E5006AB1BE /* CustomImagePickerController.swift */; };
+		0483339A1B08305E009DA533 /* CustomPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048333991B08305E009DA533 /* CustomPresentAnimationController.swift */; };
 		04D19E351AD8195C00197493 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D19E341AD8195C00197493 /* AppDelegate.swift */; };
 		04D19E371AD8195C00197493 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D19E361AD8195C00197493 /* ViewController.swift */; };
 		04D19E3A1AD8195C00197493 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D19E381AD8195C00197493 /* Main.storyboard */; };
@@ -85,6 +88,9 @@
 		0462E44D1B07F9B300E91A1F /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0463D2541AFA53AA003D588F /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		0463D2581AFA8D07003D588F /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		047F78901B086C27006AB1BE /* SendPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendPhotoViewController.swift; sourceTree = "<group>"; };
+		047F78921B0879E5006AB1BE /* CustomImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImagePickerController.swift; sourceTree = "<group>"; };
+		048333991B08305E009DA533 /* CustomPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentAnimationController.swift; sourceTree = "<group>"; };
 		04D19E2F1AD8195C00197493 /* Hey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D19E331AD8195C00197493 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04D19E341AD8195C00197493 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +209,9 @@
 				04D19E321AD8195C00197493 /* Supporting Files */,
 				043478CF1ADA19E40059462E /* Hey-Bridging-Header.h */,
 				0462E44B1B07DAD900E91A1F /* Array+Remove.swift */,
+				048333991B08305E009DA533 /* CustomPresentAnimationController.swift */,
+				047F78901B086C27006AB1BE /* SendPhotoViewController.swift */,
+				047F78921B0879E5006AB1BE /* CustomImagePickerController.swift */,
 			);
 			path = Hey;
 			sourceTree = "<group>";
@@ -336,13 +345,16 @@
 				0463D2551AFA53AA003D588F /* FeedCell.swift in Sources */,
 				043478D61ADA1BC60059462E /* FriendViewController.swift in Sources */,
 				043478C61ADA16B00059462E /* FeedViewController.swift in Sources */,
+				047F78911B086C27006AB1BE /* SendPhotoViewController.swift in Sources */,
 				04D19E551AD81ED500197493 /* LoginViewController.swift in Sources */,
 				0462E4441B02563000E91A1F /* NavigationControllerDelegate.swift in Sources */,
 				04D19E371AD8195C00197493 /* ViewController.swift in Sources */,
+				0483339A1B08305E009DA533 /* CustomPresentAnimationController.swift in Sources */,
 				0462E44E1B07F9B300E91A1F /* SearchViewController.swift in Sources */,
 				04D19E351AD8195C00197493 /* AppDelegate.swift in Sources */,
 				0462E44A1B052C3600E91A1F /* TransitionAnimator.swift in Sources */,
 				0463D2591AFA8D07003D588F /* ImageViewController.swift in Sources */,
+				047F78931B0879E5006AB1BE /* CustomImagePickerController.swift in Sources */,
 				04D19E571AD81EE100197493 /* RegisterViewController.swift in Sources */,
 				0462E44C1B07DAD900E91A1F /* Array+Remove.swift in Sources */,
 			);

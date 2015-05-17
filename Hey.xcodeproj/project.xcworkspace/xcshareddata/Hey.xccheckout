@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9B4A3ED8-608D-4FC3-8CF4-CC457058E531</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BB3AFCF9974C2BE2C53D9B6CD2EF7234A841FC87</key>
+		<string>https://github.com/JackShort/Swipit.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Hey.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BB3AFCF9974C2BE2C53D9B6CD2EF7234A841FC87</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/JackShort/Swipit.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BB3AFCF9974C2BE2C53D9B6CD2EF7234A841FC87</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BB3AFCF9974C2BE2C53D9B6CD2EF7234A841FC87</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Hey</string>
+		</dict>
+	</array>
+</dict>
+</plist>

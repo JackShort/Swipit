@@ -379,6 +379,21 @@ class FriendViewController: UIViewController, UITableViewDelegate, UITableViewDa
             var indexPath: NSIndexPath = table.indexPathForRowAtPoint(point)!
             var cell = table.cellForRowAtIndexPath(indexPath)
             sendTo = cell!.textLabel!.text!
+            
+            picker.modalPresentationStyle = UIModalPresentationStyle.FullScreen
+            picker.sourceType = UIImagePickerControllerSourceType.Camera
+            picker.showsCameraControls = false
+            picker.delegate = self
+            
+            var translate = CGAffineTransformMakeTranslation(0.0, 71.0)
+            picker.cameraViewTransform = translate;
+            
+            var scale = CGAffineTransformScale(translate, 1.333333, 1.333333)
+            picker.cameraViewTransform = scale;
+            
+            var overlay = createOverlay()
+            picker.cameraOverlayView = overlay
+            
             presentViewController(picker, animated: true, completion: nil)
         }
     }
@@ -393,6 +408,62 @@ class FriendViewController: UIViewController, UITableViewDelegate, UITableViewDa
             "pic": imageString
         ]
     
+        println(sendTo)
         fb.childByAppendingPath(sendTo).childByAutoId().setValue(message)
+    }
+    
+    func createOverlay() -> UIView {
+        var mainOverlay: UIView = UIView(frame: view.bounds)
+        var clearView: UIView = UIView(frame: CGRectMake(0, 0, view.frame.size.width, view.frame.size.height))
+        clearView.opaque = false
+        clearView.backgroundColor = UIColor.clearColor()
+        mainOverlay.addSubview(clearView)
+        
+        var button = UIButton(frame: CGRectMake(128, 470, 65, 65))
+        button.backgroundColor = UIColor.clearColor()
+        button.layer.masksToBounds = true
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 65 / 2
+        button.layer.borderColor = UIColor.whiteColor().CGColor
+        button.layer.borderWidth = 7
+        button.addTarget(self, action: "buttonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        mainOverlay.addSubview(button)
+        
+        var swap = UIButton(frame: CGRectMake(260, 28, 50, 40))
+        swap.setTitle("swap", forState: UIControlState.Normal)
+        swap.addTarget(self, action: "swap:", forControlEvents: UIControlEvents.TouchUpInside)
+        mainOverlay.addSubview(swap)
+        
+        var close = UIButton(frame: CGRectMake(16, 20, 30, 30))
+        close.setTitle("X", forState: UIControlState.Normal)
+        close.addTarget(self, action: "close:", forControlEvents: UIControlEvents.TouchUpInside)
+        mainOverlay.addSubview(close)
+        
+        return mainOverlay
+    }
+    
+    func buttonPressed(sender: UIButton) {
+        picker.takePicture()
+    }
+    
+    func swap(sender: UIButton) {
+        if picker.cameraDevice == UIImagePickerControllerCameraDevice.Front {
+            picker.cameraDevice = UIImagePickerControllerCameraDevice.Rear
+        } else {
+            picker.cameraDevice = UIImagePickerControllerCameraDevice.Front
+        }
+    }
+    
+    func close(sender: UIButton) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func scalePhoto(image: UIImage, size: CGSize) -> UIImage {
+        UIGraphicsBeginImageContext(size)
+        image.drawInRect(CGRectMake(0, 0, size.width, size.height))
+        var newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
 }

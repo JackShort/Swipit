@@ -20,6 +20,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     var keysToSend: [String] = [String]()
     var sender: String = ""
     
+    var imagePicker: UIImagePickerController = UIImagePickerController()
+    
     let cellId = "cellId"
     
     @IBOutlet weak var table: UITableView!
@@ -107,10 +109,20 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func takePhoto(sender: AnyObject) {
-        var imagePicker = UIImagePickerController()
         imagePicker.modalPresentationStyle = UIModalPresentationStyle.FullScreen
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        imagePicker.showsCameraControls = false
         imagePicker.delegate = self
+        
+        var translate = CGAffineTransformMakeTranslation(0.0, 71.0)
+        imagePicker.cameraViewTransform = translate;
+        
+        var scale = CGAffineTransformScale(translate, 1.333333, 1.333333)
+        imagePicker.cameraViewTransform = scale;
+        
+        var overlay = createOverlay()
+        imagePicker.cameraOverlayView = overlay
+        
         presentViewController(imagePicker, animated: true, completion: nil)
         
         //Just send a random photo to the noob over there smh people these days
@@ -132,16 +144,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        picker.dismissViewControllerAnimated(true, completion: nil)
+        var vc: SendPhotoViewController = SendPhotoViewController()
         var image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let imageData = UIImageJPEGRepresentation(image, 1.0)
-        let imageString = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.allZeros)
-        var message = [
-            "sender": PFUser.currentUser()!.username!,
-            "pic": imageString
-        ]
-    
-        fb.childByAppendingPath("jack").childByAutoId().setValue(message)
+        vc.photo = image
+        picker.pushViewController(vc, animated: true)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -164,5 +170,85 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             chats[sender] = photos
             chatKeys[sender] = keys
         }
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+//            fb
+            //yeah we need to add so you can see if you sent someone a snap
+        }
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+//    func showImage(image: UIImage) {
+//        var scrollView = UIScrollView(frame: CGRectMake(0, 0, view.frame.width, view.frame.height))
+//        scrollView.backgroundColor = UIColor.blackColor()
+//        scrollView.scrollEnabled = false
+//        scrollView.pagingEnabled = true
+//        
+//        var imageView = UIImageView(frame: CGRectMake(0, 0, view.frame.width, view.frame.height))
+//        imageView.image = image
+//        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+//        scrollView.addSubview(imageView)
+//        
+//        UIApplication.sharedApplication().keyWindow?.addSubview(scrollView)
+//    }
+    
+    func createOverlay() -> UIView {
+        var mainOverlay: UIView = UIView(frame: view.bounds)
+        var clearView: UIView = UIView(frame: CGRectMake(0, 0, view.frame.size.width, view.frame.size.height))
+        clearView.opaque = false
+        clearView.backgroundColor = UIColor.clearColor()
+        mainOverlay.addSubview(clearView)
+        
+        var button = UIButton(frame: CGRectMake(128, 470, 65, 65))
+        button.backgroundColor = UIColor.clearColor()
+        button.layer.masksToBounds = true
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 65 / 2
+        button.layer.borderColor = UIColor.whiteColor().CGColor
+        button.layer.borderWidth = 7
+        button.addTarget(self, action: "buttonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        mainOverlay.addSubview(button)
+        
+        var swap = UIButton(frame: CGRectMake(260, 28, 50, 40))
+        swap.setTitle("swap", forState: UIControlState.Normal)
+        swap.addTarget(self, action: "swap:", forControlEvents: UIControlEvents.TouchUpInside)
+        mainOverlay.addSubview(swap)
+        
+        var close = UIButton(frame: CGRectMake(16, 20, 30, 30))
+        close.setTitle("X", forState: UIControlState.Normal)
+        close.addTarget(self, action: "close:", forControlEvents: UIControlEvents.TouchUpInside)
+        mainOverlay.addSubview(close)
+        
+        return mainOverlay
+    }
+    
+    func buttonPressed(sender: UIButton) {
+        imagePicker.takePicture()
+    }
+    
+    func swap(sender: UIButton) {
+        if imagePicker.cameraDevice == UIImagePickerControllerCameraDevice.Front {
+            imagePicker.cameraDevice = UIImagePickerControllerCameraDevice.Rear
+        } else {
+            imagePicker.cameraDevice = UIImagePickerControllerCameraDevice.Front
+        }
+    }
+    
+    func close(sender: UIButton) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func scalePhoto(image: UIImage, size: CGSize) -> UIImage {
+        UIGraphicsBeginImageContext(size)
+        image.drawInRect(CGRectMake(0, 0, size.width, size.height))
+        var newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
 }

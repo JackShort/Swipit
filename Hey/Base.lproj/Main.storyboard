@@ -56,18 +56,9 @@
                     <view key="view" contentMode="scaleToFill" id="6Jh-oX-8NB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ncz-S8-Ksf">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="imageView" destination="ncz-S8-Ksf" id="ZLY-yT-Ewf"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuh-YK-9Dj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -271,7 +262,7 @@
                     <navigationItem key="navigationItem" title="friends" id="IFJ-Wk-pTC">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="search" id="OCO-fG-GBM">
                             <connections>
-                                <segue destination="TRP-qc-Jkm" kind="show" id="unQ-7k-x76"/>
+                                <segue destination="TRP-qc-Jkm" kind="show" id="luf-IN-0XO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
