@@ -29,18 +29,51 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+        prefersStatusBarHidden()
+        
         navigationController?.navigationBarHidden = false
         tabBarController?.tabBar.hidden = false
+    }
+    
+    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .None)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNeedsStatusBarAppearanceUpdate()
+        
 //        when you add a class do this --yeah ik --um no you didn't you twat --i hate you --i will kill you --same
         self.table.registerClass(FeedCell.classForCoder(), forCellReuseIdentifier: cellId)
         
+        navigationController?.navigationBar.barTintColor = UIColor(hex: 0x36465d, alpha: 1)
+        navigationController?.navigationBar.translucent = false
+        navigationController?.navigationBar.tintColor = UIColor(hex: 0xFFFFFF, alpha: 1)
+        
+        var title = UILabel()
+        title.backgroundColor = UIColor.clearColor()
+        title.font = UIFont(name: "Helvetica Neue", size: 20)
+        title.shadowColor = UIColor(white: 1, alpha: 1)
+        title.shadowOffset = CGSizeMake(0.0, 1.0);
+        title.textColor = UIColor.whiteColor()
+        title.text = "SwipIt"
+        navigationItem.titleView = title
+        title.sizeToFit()
+        
+        tabBarController?.tabBar.barTintColor = UIColor(hex: 0x293D5D, alpha: 1)
+        tabBarController?.tabBar.tintColor = UIColor.whiteColor()
+        
         personalFb = fb.childByAppendingPath(PFUser.currentUser()?.username)
         setupFirebase()
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
     
     func setupFirebase() {

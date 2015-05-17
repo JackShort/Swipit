@@ -37,6 +37,7 @@
 		0463D2591AFA8D07003D588F /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463D2581AFA8D07003D588F /* ImageViewController.swift */; };
 		047F78911B086C27006AB1BE /* SendPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F78901B086C27006AB1BE /* SendPhotoViewController.swift */; };
 		047F78931B0879E5006AB1BE /* CustomImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F78921B0879E5006AB1BE /* CustomImagePickerController.swift */; };
+		047F78951B08A12F006AB1BE /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F78941B08A12F006AB1BE /* UIColor+Hex.swift */; };
 		0483339A1B08305E009DA533 /* CustomPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048333991B08305E009DA533 /* CustomPresentAnimationController.swift */; };
 		04D19E351AD8195C00197493 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D19E341AD8195C00197493 /* AppDelegate.swift */; };
 		04D19E371AD8195C00197493 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D19E361AD8195C00197493 /* ViewController.swift */; };
@@ -90,6 +91,7 @@
 		0463D2581AFA8D07003D588F /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		047F78901B086C27006AB1BE /* SendPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendPhotoViewController.swift; sourceTree = "<group>"; };
 		047F78921B0879E5006AB1BE /* CustomImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImagePickerController.swift; sourceTree = "<group>"; };
+		047F78941B08A12F006AB1BE /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		048333991B08305E009DA533 /* CustomPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentAnimationController.swift; sourceTree = "<group>"; };
 		04D19E2F1AD8195C00197493 /* Hey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D19E331AD8195C00197493 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				048333991B08305E009DA533 /* CustomPresentAnimationController.swift */,
 				047F78901B086C27006AB1BE /* SendPhotoViewController.swift */,
 				047F78921B0879E5006AB1BE /* CustomImagePickerController.swift */,
+				047F78941B08A12F006AB1BE /* UIColor+Hex.swift */,
 			);
 			path = Hey;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				04D19E371AD8195C00197493 /* ViewController.swift in Sources */,
 				0483339A1B08305E009DA533 /* CustomPresentAnimationController.swift in Sources */,
 				0462E44E1B07F9B300E91A1F /* SearchViewController.swift in Sources */,
+				047F78951B08A12F006AB1BE /* UIColor+Hex.swift in Sources */,
 				04D19E351AD8195C00197493 /* AppDelegate.swift in Sources */,
 				0462E44A1B052C3600E91A1F /* TransitionAnimator.swift in Sources */,
 				0463D2591AFA8D07003D588F /* ImageViewController.swift in Sources */,

@@ -57,6 +57,20 @@ class SendPhotoViewController: UIViewController, UITableViewDelegate, UITableVie
         self.table.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "cellId")
         //        self.table.registerClass(SearchTableViewCell.classForCoder(), forCellReuseIdentifier: "searchCell")
         
+        navigationController?.navigationBar.barTintColor = UIColor(hex: 0x36465d, alpha: 1)
+        navigationController?.navigationBar.translucent = false
+        navigationController?.navigationBar.tintColor = UIColor(hex: 0xFFFFFF, alpha: 1)
+        
+        var title = UILabel()
+        title.backgroundColor = UIColor.clearColor()
+        title.font = UIFont(name: "Helvetica Neue", size: 20)
+        title.shadowColor = UIColor(white: 1, alpha: 1)
+        title.shadowOffset = CGSizeMake(0.0, 1.0);
+        title.textColor = UIColor.whiteColor()
+        title.text = "Friends"
+        navigationItem.titleView = title
+        title.sizeToFit()
+        
         //scrollview stuff
         //        self.scrollView.delegate = self
         
@@ -94,11 +108,18 @@ class SendPhotoViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     override func viewWillAppear(animated: Bool) {
+        prefersStatusBarHidden()
+        setNeedsStatusBarAppearanceUpdate()
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .None)
         self.navigationController?.navigationBarHidden = false
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return false
     }
     
     //loading friends functions

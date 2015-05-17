@@ -36,7 +36,7 @@ class ImageViewController: UIViewController, UIViewControllerTransitioningDelega
         
         scrollView = UIScrollView(frame: view.bounds)
         scrollView.delegate = self
-        scrollView.backgroundColor = UIColor.blackColor()
+        scrollView.backgroundColor = UIColor(hex: 0x36465d, alpha: 0)
         scrollView.bounces = false
         view.addSubview(scrollView)
         var rect = scrollView.bounds
@@ -98,7 +98,7 @@ class ImageViewController: UIViewController, UIViewControllerTransitioningDelega
         }
         
         if pageOn == (photoCount - 1) {
-            scrollView.backgroundColor = UIColor(white: (scrollView.contentOffset.x % scrollView.frame.size.width) / scrollView.frame.size.width, alpha: 1)
+            scrollView.backgroundColor = UIColor(hex: 0x36465d, alpha: (scrollView.contentOffset.x % scrollView.frame.size.width) / scrollView.frame.size.width)
         }
         
         if previousPage != pageOn && photos.count != 0 {

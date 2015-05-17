@@ -98,6 +98,19 @@ class FriendViewController: UIViewController, UITableViewDelegate, UITableViewDa
         picker.sourceType = UIImagePickerControllerSourceType.Camera
         picker.delegate = self
         
+        var title = UILabel()
+        title.backgroundColor = UIColor.clearColor()
+        title.font = UIFont(name: "Helvetica Neue", size: 20)
+        title.shadowColor = UIColor(white: 1, alpha: 1)
+        title.shadowOffset = CGSizeMake(0.0, 1.0);
+        title.textColor = UIColor.whiteColor()
+        title.text = "Friends"
+        navigationItem.titleView = title
+        title.sizeToFit()
+        
+        navigationController?.navigationBar.barTintColor = UIColor(hex: 0x36465d, alpha: 1)
+        navigationController?.navigationBar.translucent = false
+        navigationController?.navigationBar.tintColor = UIColor(hex: 0xFFFFFF, alpha: 1)
         
         // you know what this does
         self.tableViewSectionTitles = ["+","me","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
@@ -108,6 +121,7 @@ class FriendViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func viewWillAppear(animated: Bool) {
+        prefersStatusBarHidden()
 //        super.viewWillAppear(animated)
 //        
 //        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.486, green: 0.302, blue: 1, alpha: 1)
@@ -169,6 +183,10 @@ class FriendViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return true
         }
         
+        return false
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
         return false
     }
     
